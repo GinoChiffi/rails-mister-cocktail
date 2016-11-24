@@ -1,0 +1,28 @@
+<% content_for(:title) do %>
+  <%= @cocktail.name %> is on Yelp!
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cocktail.name %>
+</p>
+
+<p>
+  <strong>Doses:</strong>
+  <% @cocktail.doses.each do |dose| %>
+  <%= dose.description %>
+  <%= dose.ingredient.name %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %> |
+<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<%= link_to cocktails_path do %>
+  <i class="fa fa-arrow-left"></i>
+<% end %>
+
+
+
